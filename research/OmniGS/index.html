@@ -27,7 +27,11 @@ if (!doNotTrack) {
 <style>
     .rotate-90 {
         transform: rotate(90deg);
+		max-width: 100%;
     }
+	.max_100_per_width {
+		max-width: 100%;
+	}
 </style>
 
 <body class="w3-content" style="max-width:1000px">
@@ -38,9 +42,9 @@ if (!doNotTrack) {
 			<h4 class="w3-center w3-margin-top" >IROS 2024 Submission</h4>
 
 			<div class="w3-center">
-				<p><em><a href="https://liquorleaf.github.io" style="border-bottom: 1px dotted black;"></a>Longwei Li<sup>1</sup></a></em>, <em><a href="https://huajianup.github.io" style="border-bottom: 1px dotted black;"></a>Huajian Huang<sup>2</sup>, <em><a href="http://www.saikit.org" style="border-bottom: 1px dotted black;"></a>Sai-Kit Yeung<sup>2</sup>
+				<p><em><a href="https://liquorleaf.github.io" style="border-bottom: 1px dotted black;"></a>Longwei Li</em><sup>1</sup></a>, <em><a href="https://huajianup.github.io" style="border-bottom: 1px dotted black;"></a>Huajian Huang</em><sup>2</sup>, <em><a href="http://www.saikit.org" style="border-bottom: 1px dotted black;"></a>Sai-Kit Yeung</em><sup>2</sup>
 				and
-				Hui Cheng<sup>1</sup></a></em>
+				<em>Hui Cheng</em><sup>1</sup></a>
 				</p>
 				<p>Sun Yat-Sen University<sup>1</sup>, The Hong Kong University of Science and Technology<sup>2</sup></p>
 			</div>
@@ -64,159 +68,29 @@ if (!doNotTrack) {
 		</div>
 
 		<div class="w3-container hj-padding" >
-		    <div class="w3-container hj-padding plate" id="how-it-works">
-		    	<h3>How it works</h3>
+		    <div class="w3-container hj-padding plate" id="examples">
+		    	<h3>Image Examples</h3>
 		    </div>
 
-		    <div class="how-it-work-style">
-				<details>
-					<summary>1. Introduce the concept of hyper primitives map.</summary>
-					<div class="detail-content">
-						Hyper primitives are defined as a set of point clouds associated with ORB features, rotation, scaling, ensity,
-						and spherical harmonic (SH) coefficients. The hyper primitives map allows the system to efficiently optimize
-						tracking using a factor graph solver and learn the photorealistic mapping by neural solver.
-						<br>
-						<img src="img/eval.svg" class="rotate-90"></img>
-					</div>
-				</details>
-				<details>
-					<summary>2. Geometry-based densification.</summary>
-					<div class="detail-content">
-						We argue that 2D geometric feature points spatially distributed in the frames essentially represent the region
-						with a complex texture that requires more hyper primitives. However, less than 30% of 2D geometric feature points
-						of frames are active and have corresponding 3D points, especially for non-RGB-D scenarios. Therefore, we actively
-						create additional temporary hyper primitives based on the inactive 2D feature points.
-						<br>
-						<object src="img/eval.pdf" ></object>
-					</div>
-				</details>
-				<details>
-					<summary>3. Gaussian-pyramid-based learning, a new progressive training method.</summary>
-					<div class="detail-content">
-						Progressive training is a widely used technology in neural rendering to accelerate the optimization process.
-						Some methods have been proposed to reduce training time while achieving better rendering quality.
-						To enhance performance with efficient multi-level features learning online, we propose Gaussian-pyramid-based learning.
-						At the beginning training step, the hyper primitives are supervised by the highest level of the pyramid, i.e. level n.
-						As training iteration increases, we not only densify hyper primitives but also reduce the pyramid level and obtain a
-						new ground truth until reaching the bottom of the Gaussian pyramid.
-						<br>
-						<img src="img/GP_learning.jpg" ></img>
-					</div>
-				</details>
-		    </div>
+			<h6 class="w3-center result-text">Comparisons with EgoNeRF on the EgoNeRF Dataset</h6>
+			<div class="detail-content">
+				<img src="img/eval.svg" class="rotate-90"></img>
+			</div>
+			<h6 class="w3-center result-text">Comparisons with 3DGS on the 360Roam Dataset</h6>
+			<div class="detail-content">
+				<img src="img/perspective.svg" class="max_100_per_width"></img>
+			</div>
 		</div>
 
 		<div class="w3-container hj-padding" >
 			<div class="w3-container hj-padding plate" id="result">
-				<h3>Results</h3>
+				<h3>Vedio Introduction and Examples</h3>
 			</div>
 
 			<div class="w3-padding-16">
-				<h6 class="w3-center result-text">Comparisons</h6>
-				<div class="results-carousel">
-					<ul class="slides">
-						<input type="radio" id="res1" checked name="group1" onclick="_change_active_dot(0)" />
-						<li class="slide-container">
-							<div class="slide-image">
-								<video poster="" autoplay controls muted loop playsinline height="100%">
-									<source src="video/Office4_Ours_Vs_Nice.m4v" type="video/mp4">
-								</video>
-							</div>
-							<div class="carousel-controls">
-								<label for="res3" class="prev-slide">
-									<span><i class="fa-solid fa-circle-chevron-left"></i></span>
-								</label>
-								<label for="res2" class="next-slide">
-									<span><i class="fa-solid fa-circle-chevron-right"></i></span>
-								</label>
-							</div>
-						</li>
-
-						<input type="radio" id="res2" name="group1"  onclick="_change_active_dot(1)"/>
-						<li class="slide-container">
-							<div class="slide-image">
-								<video poster="" autoplay controls muted loop playsinline height="100%">
-									<source src="video/Room0_Ours_Vs_Co.m4v" type="video/mp4">
-								</video>
-							</div>
-							<div class="carousel-controls">
-								<label for="res1" class="prev-slide">
-									<span><i class="fa-solid fa-circle-chevron-left"></i></span>
-								</label>
-								<label for="res3" class="next-slide">
-									<span><i class="fa-solid fa-circle-chevron-right"></i></span>
-								</label>
-							</div>
-						</li>
-						<input type="radio"  id="res3" name="group1"  onclick="_change_active_dot(2)"/>
-						<li class="slide-container">
-							<div class="slide-image">
-								<video poster="" autoplay controls muted loop playsinline height="100%">
-									<source src="video/Room1_Ours_Vs_Eslam.mp4" type="video/mp4">
-								</video>
-							</div>
-							<div class="carousel-controls">
-								<label for="res2" class="prev-slide">
-									<span><i class="fa-solid fa-circle-chevron-left"></i></span>
-								</label>
-								<label for="res1" class="next-slide">
-									<span><i class="fa-solid fa-circle-chevron-right"></i></span>
-								</label>
-							</div>
-						</li>
-
-						<div class="carousel-dots">
-							<label for="res1" class="carousel-dot active" id="img-dot-0"></label>
-							<label for="res2" class="carousel-dot" id="img-dot-1"></label>
-							<label for="res3" class="carousel-dot" id="img-dot-2"></label>
-						</div>
-					</ul>
-				</div>
-
-				<h6 class="w3-center result-text">Live demos (No Speedup)</h6>
-				<div class="results-carousel">
-					<ul class="slides">
-						<input type="radio" id="res4" checked name="group2"  onclick="_change_active_demo_dot(0)"/>
-						<li class="slide-container">
-							<div class="slide-image">
-								<video poster="" autoplay controls muted loop playsinline height="100%">
-									<source src="video/live.m4v" type="video/mp4">
-								</video>
-							</div>
-							<div class="carousel-controls">
-								<label for="res5" class="prev-slide">
-									<span><i class="fa-solid fa-circle-chevron-left"></i></span>
-								</label>
-								<label for="res5" class="next-slide">
-									<span><i class="fa-solid fa-circle-chevron-right"></i></span>
-								</label>
-							</div>
-						</li>
-
-						<input type="radio" id="res5" name="group2" onclick="_change_active_demo_dot(1)"/>
-						<li class="slide-container">
-							<div class="slide-image">
-								<video poster="" autoplay controls muted loop playsinline height="100%">
-									<source src="video/live_Office0_ours.mp4" type="video/mp4">
-								</video>
-							</div>
-							<div class="carousel-controls">
-								<label for="res4" class="prev-slide">
-									<span><i class="fa-solid fa-circle-chevron-left"></i></span>
-								</label>
-								<label for="res4" class="next-slide">
-									<span><i class="fa-solid fa-circle-chevron-right"></i></span>
-								</label>
-							</div>
-						</li>
-
-						<div class="carousel-dots">
-							<label for="res4" class="carousel-dot active" id="img-dot-3"></label>
-							<label for="res5" class="carousel-dot" id="img-dot-4"></label>
-						</div>
-					</ul>
-				</div>
-
+				<video poster="" autoplay controls muted loop playsinline height="100%">
+					<source src="video/OmniGS.mp4" type="video/mp4">
+				</video>
 			</div>
 		</div>
 
@@ -224,10 +98,10 @@ if (!doNotTrack) {
 		<div class="w3-container hj-padding" id="citation">
 			<h3>Citation</h3>
 			<pre class="citation-code"><code><span>@article</span>{lli2024omnigs,
-	title = {OmniGS: Omnidirectional Gaussian Splatting for Fast Radiance Field Reconstruction using Omnidirectional Images},
-	author = {Li, Longwei and Huang, Huajian and Yeung, Sai-Kit and Cheng Hui},
-	journal={arXiv preprint, arXiv:},
-	year = {2024}
+title = {OmniGS: Omnidirectional Gaussian Splatting for Fast Radiance Field Reconstruction using Omnidirectional Images},
+author = {Li, Longwei and Huang, Huajian and Yeung, Sai-Kit and Cheng Hui},
+journal={arXiv preprint, arXiv:},
+year = {2024}
 }</code></pre>
 		</div>
 

@@ -747,7 +747,7 @@ input:checked + .slide-container .nav label { display: block; }
     /*background-color: #efefef;*/
     /*border-radius: 5px;*/
 }
-.how-it-work-style summary{
+.how-it-work-style summary {
     font-size: medium;
     font-weight: 600;
 }
