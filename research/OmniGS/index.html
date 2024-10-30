@@ -2,7 +2,7 @@
 <html><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>OmniGS: Omnidirectional Gaussian Splatting for Fast Radiance Field Reconstruction using Omnidirectional Images</title>
+<title>OmniGS: Fast Radiance Field Reconstruction using Omnidirectional Gaussian Splatting</title>
 
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 
@@ -34,20 +34,20 @@ if (!doNotTrack) {
 
 	<div class="w3-container hj-padding">
 		<div>
-			<h1 class="w3-center w3-margin-top" id="OmniGS"><b>OmniGS: Omnidirectional Gaussian Splatting for Fast Radiance Field Reconstruction using Omnidirectional Images</b></h1>
-			<h4 class="w3-center w3-margin-top" >2024 Submission</h4>
+			<h1 class="w3-center w3-margin-top" id="OmniGS"><b>OmniGS: Fast Radiance Field Reconstruction using Omnidirectional Gaussian Splatting</b></h1>
+			<h4 class="w3-center w3-margin-top" >WACV 2025</h4>
 
 			<div class="w3-center">
 				<p><em><a href="https://liquorleaf.github.io" style="border-bottom: 1px dotted black;"></a>Longwei Li</em><sup>1</sup></a>, <em><a href="https://huajianup.github.io" style="border-bottom: 1px dotted black;"></a>Huajian Huang</em><sup>2</sup>, <em><a href="http://www.saikit.org" style="border-bottom: 1px dotted black;"></a>Sai-Kit Yeung</em><sup>2</sup>
 				and
-				<em>Hui Cheng</em><sup>1</sup></a>
+				<em><a href="https://cse.sysu.edu.cn/content/2504" style="border-bottom: 1px dotted black;"></a>Hui Cheng*</em><sup>1</sup></a>
 				</p>
 				<p>Sun Yat-Sen University<sup>1</sup>, The Hong Kong University of Science and Technology<sup>2</sup></p>
 			</div>
 
 			<div class="link w3-center pub">
 				<a class="btn btn-primary outline big-outline" href="https://arxiv.org/abs/2404.03202" target="_blank"><i class="fa fa-file-pdf-o" style="margin-right: 5px"></i>Paper</a>
-				<a class="btn btn-primary outline big-outline" href="https://github.com/liquorleaf/OmniGS" target="_blank"><i class="fa fa-github" style="margin-right: 5px"></i>Code (TBA)</a>
+				<a class="btn btn-primary outline big-outline" href="https://github.com/liquorleaf/OmniGS" target="_blank"><i class="fa fa-github" style="margin-right: 5px"></i>Code (Cleaning up. TBA in around one month.)</a>
 			</div>
 
 	    </div>
@@ -59,7 +59,7 @@ if (!doNotTrack) {
 			</div>
 
 		    <h6 class="abstract-text">
-                Photorealistic reconstruction relying on 3D Gaussian Splatting has shown promising potential in robotics. However, the current 3D Gaussian Splatting system only supports radiance field reconstruction using undistorted perspective images. In this paper, we present OmniGS, a novel omnidirectional Gaussian splatting system, to take advantage of omnidirectional images for fast radiance field reconstruction. Specifically, we conduct a theoretical analysis of spherical camera model derivatives in 3D Gaussian Splatting. According to the derivatives, we then implement a new GPU-accelerated omnidirectional rasterizer that directly splats 3D Gaussians onto the equirectangular screen space for omnidirectional image rendering. As a result, we realize differentiable optimization of the radiance field without the requirement of cube-map rectification or tangent-plane approximation. Extensive experiments conducted in egocentric and roaming scenarios demonstrate that our method achieves state-of-the-art reconstruction quality and high rendering speed using omnidirectional images. To benefit the research community, the code will be made publicly available once the paper is published.
+                Photorealistic reconstruction relying on 3D Gaussian Splatting has shown promising potential in various domains. However, the current 3D Gaussian Splatting system only supports radiance field reconstruction using undistorted perspective images. In this paper, we present OmniGS, a novel omnidirectional Gaussian splatting system, to take advantage of omnidirectional images for fast radiance field reconstruction. Specifically, we conduct a theoretical analysis of spherical camera model derivatives in 3D Gaussian Splatting. According to the derivatives, we then implement a new GPU-accelerated omnidirectional rasterizer that directly splats 3D Gaussians onto the equirectangular screen space for omnidirectional image rendering. We realize differentiable optimization of the omnidirectional radiance field without the requirement of cube-map rectification or tangent-plane approximation. Extensive experiments conducted in egocentric and roaming scenarios demonstrate that our method achieves state-of-the-art reconstruction quality and high rendering speed using omnidirectional images. The code will be publicly available.
 		    </h6>
 		</div>
 
@@ -71,6 +71,10 @@ if (!doNotTrack) {
 			<h6 class="w3-center result-text">Comparisons with EgoNeRF on the EgoNeRF Dataset</h6>
 			<div class="detail-content">
 				<img src="img/eval.png" class="max_100_per_width"></img>
+			</div>
+			<h6 class="w3-center result-text">Comparisons with 360Roam on the 360Roam Dataset</h6>
+			<div class="detail-content">
+				<img src="img/eval-360roam.png" class="max_100_per_width"></img>
 			</div>
 			<h6 class="w3-center result-text">Comparisons with 3DGS on the 360Roam Dataset</h6>
 			<div class="detail-content">
@@ -94,7 +98,7 @@ if (!doNotTrack) {
 		<div class="w3-container hj-padding" id="citation">
 			<h3>Citation</h3>
 			<pre class="citation-code"><code><span>@article</span>{lli2024omnigs,
-title = {OmniGS: Omnidirectional Gaussian Splatting for Fast Radiance Field Reconstruction using Omnidirectional Images},
+title = {OmniGS: Fast Radiance Field Reconstruction using Omnidirectional Gaussian Splatting},
 author = {Li, Longwei and Huang, Huajian and Yeung, Sai-Kit and Cheng Hui},
 journal={arXiv preprint, arXiv:2404.03202},
 year = {2024}
@@ -106,6 +110,7 @@ year = {2024}
 			<ul>
 				<li><a href="https://github.com/changwoonchoi/EgoNeRF">Balanced Spherical Grid for Egocentric View Synthesis (CVPR 2023)</a></li>
 				<li><a href="https://arxiv.org/abs/2402.00763">360-GS: Layout-guided Panoramic Gaussian Splatting For Indoor Roaming</a></li>
+				<li><a href="https://github.com/LetianHuang/op43dgs">On the Error Analysis of 3D Gaussian Splatting and an Optimal Projection Strategy (ECCV 2024)</a></li>
 			</ul>
 		</div>
 
